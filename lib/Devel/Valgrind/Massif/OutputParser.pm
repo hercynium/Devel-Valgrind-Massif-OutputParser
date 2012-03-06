@@ -6,11 +6,43 @@ package Devel::Valgrind::Massif::OutputParser;
 
 use autodie;
 
+=method new()
+
+While you can call the other methods as class methods, this is here to make OO
+folk happier, and to somewhat appease the "dammit these package names are too 
+damned long" people, (like me) too.
+
+  my $mp = Devel::Valgrind::Massif::OutputParser->new();
+
+=cut
+
+sub new { return bless {}, shift }
+
+=method parse_file($file_name)
+
+A convenience method, provided because msparser.py has it, too.
+
+$file_name is a string that is the path to an output file created by running massif.
+
+The output is the same data structure that would be returned from ->parse().
+
+=cut
+
 sub parse_file {
   my ($self, $file) = @_;
   open my $fh, '<', $file;
   return $self->parse($fh);
 }
+
+=method parse($fh)
+
+$fh is a readable file handle, or something that can behave like one.
+
+The main method for this package, it reads the output data from massif through
+the given file handle and returns a perl data structure that mirrors the one
+output by msparser.py in python.
+
+=cut
 
 sub parse {
   my ($self, $fh) = @_;
@@ -123,3 +155,19 @@ sub _build_heap_tree {
 
 1;
 __END__
+
+=head1 SYNOPSIS
+
+  use Devel::Valgrind::Massif::OutputParser;
+  my $data;
+
+  # so, you could do this:
+  my $data0 = Devel::Valgrind::Massif::OutputParser->parse_file($some_file);
+  my $data1 = Devel::Valgrind::Massif::OutputParser->parse($some_fh);
+
+  # or you could do this:
+  my $mp = Devel::Valgrind::Massif::OutputParser->new();
+  my $data2 = $mp->parse_file($some_file);
+  my $data3 = $mp->parse($some_fh);
+
+
