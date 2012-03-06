@@ -1,0 +1,152 @@
+# NAME
+
+Devel::Valgrind::Massif::OutputParser - Parse the output from massif just like msparser.py
+
+# VERSION
+
+version 0.0.0_3
+
+# SYNOPSIS
+
+    use Devel::Valgrind::Massif::OutputParser;
+    my $data;
+
+    # so, you could do this:
+    my $data0 = Devel::Valgrind::Massif::OutputParser->parse_file($some_file);
+    my $data1 = Devel::Valgrind::Massif::OutputParser->parse($some_fh);
+
+    # or you could do this:
+    my $mp = Devel::Valgrind::Massif::OutputParser->new();
+    my $data2 = $mp->parse_file($some_file);
+    my $data3 = $mp->parse($some_fh);
+
+# METHODS
+
+## new()
+
+While you can call the other methods as class methods, this is here to make OO
+folk happier, and to somewhat appease the "dammit these package names are too 
+damned long" people, (like me) too.
+
+    my $mp = Devel::Valgrind::Massif::OutputParser->new();
+
+## parse_file($file_name)
+
+A convenience method, provided because msparser.py has it, too.
+
+$file_name is a string that is the path to an output file created by running massif.
+
+The output is the same data structure that would be returned from ->parse().
+
+## parse($fh)
+
+$fh is a readable file handle, or something that can behave like one.
+
+The main method for this package, it reads the output data from massif through
+the given file handle and returns a perl data structure that mirrors the one
+output by msparser.py in python.
+
+# AUTHOR
+
+Stephen R. Scaffidi <sscaffidi@cpan.org>
+
+# COPYRIGHT AND LICENSE
+
+This software is copyright (c) 2012 by Stephen R. Scaffidi.
+
+This is free software; you can redistribute it and/or modify it under
+the same terms as the Perl 5 programming language system itself.
+
+# SUPPORT
+
+## Perldoc
+
+You can find documentation for this module with the perldoc command.
+
+    perldoc Devel::Valgrind::Massif::OutputParser
+
+## Websites
+
+The following websites have more information about this module, and may be of help to you. As always,
+in addition to those websites please use your favorite search engine to discover more resources.
+
+- MetaCPAN
+
+A modern, open-source CPAN search engine, useful to view POD in HTML format.
+
+[http://metacpan.org/release/Devel-Valgrind-Massif-OutputParser](http://metacpan.org/release/Devel-Valgrind-Massif-OutputParser)
+
+- Search CPAN
+
+The default CPAN search engine, useful to view POD in HTML format.
+
+[http://search.cpan.org/dist/Devel-Valgrind-Massif-OutputParser](http://search.cpan.org/dist/Devel-Valgrind-Massif-OutputParser)
+
+- RT: CPAN's Bug Tracker
+
+The RT ( Request Tracker ) website is the default bug/issue tracking system for CPAN.
+
+[http://rt.cpan.org/NoAuth/Bugs.html?Dist=Devel-Valgrind-Massif-OutputParser](http://rt.cpan.org/NoAuth/Bugs.html?Dist=Devel-Valgrind-Massif-OutputParser)
+
+- AnnoCPAN
+
+The AnnoCPAN is a website that allows community annotations of Perl module documentation.
+
+[http://annocpan.org/dist/Devel-Valgrind-Massif-OutputParser](http://annocpan.org/dist/Devel-Valgrind-Massif-OutputParser)
+
+- CPAN Ratings
+
+The CPAN Ratings is a website that allows community ratings and reviews of Perl modules.
+
+[http://cpanratings.perl.org/d/Devel-Valgrind-Massif-OutputParser](http://cpanratings.perl.org/d/Devel-Valgrind-Massif-OutputParser)
+
+- CPAN Forum
+
+The CPAN Forum is a web forum for discussing Perl modules.
+
+[http://cpanforum.com/dist/Devel-Valgrind-Massif-OutputParser](http://cpanforum.com/dist/Devel-Valgrind-Massif-OutputParser)
+
+- CPANTS
+
+The CPANTS is a website that analyzes the Kwalitee ( code metrics ) of a distribution.
+
+[http://cpants.perl.org/dist/overview/Devel-Valgrind-Massif-OutputParser](http://cpants.perl.org/dist/overview/Devel-Valgrind-Massif-OutputParser)
+
+- CPAN Testers
+
+The CPAN Testers is a network of smokers who run automated tests on uploaded CPAN distributions.
+
+[http://www.cpantesters.org/distro/D/Devel-Valgrind-Massif-OutputParser](http://www.cpantesters.org/distro/D/Devel-Valgrind-Massif-OutputParser)
+
+- CPAN Testers Matrix
+
+The CPAN Testers Matrix is a website that provides a visual overview of the test results for a distribution on various Perls/platforms.
+
+[http://matrix.cpantesters.org/?dist=Devel-Valgrind-Massif-OutputParser](http://matrix.cpantesters.org/?dist=Devel-Valgrind-Massif-OutputParser)
+
+- CPAN Testers Dependencies
+
+The CPAN Testers Dependencies is a website that shows a chart of the test results of all dependencies for a distribution.
+
+[http://deps.cpantesters.org/?module=Devel::Valgrind::Massif::OutputParser](http://deps.cpantesters.org/?module=Devel::Valgrind::Massif::OutputParser)
+
+## Bugs / Feature Requests
+
+Please report any bugs or feature requests by email to `bug-devel-valgrind-massif-outputparser at rt.cpan.org`, or through
+the web interface at [http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Devel-Valgrind-Massif-OutputParser](http://rt.cpan.org/NoAuth/ReportBug.html?Queue=Devel-Valgrind-Massif-OutputParser). You will be automatically notified of any
+progress on the request by the system.
+
+## Source Code
+
+The code is open to the world, and available for you to hack on. Please feel free to browse it and play
+with it, or whatever. If you want to contribute patches, please send me a diff or prod me to pull
+from your repository :)
+
+[https://github.com/Hercynium/Devel-Valgrind-Massif-OutputParser](https://github.com/Hercynium/Devel-Valgrind-Massif-OutputParser)
+
+    git clone https://github.com/Hercynium/Devel-Valgrind-Massif-OutputParser.git
+
+# BUGS
+
+Please report any bugs or feature requests to bug-devel-valgrind-massif-outputparser@rt.cpan.org or through the web interface at:
+ http://rt.cpan.org/Public/Dist/Display.html?Name=Devel-Valgrind-Massif-OutputParser
