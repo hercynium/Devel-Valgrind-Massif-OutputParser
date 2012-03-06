@@ -21,7 +21,7 @@ my %module_build_args = (
     "Stephen R. Scaffidi <sscaffidi\@cpan.org>"
   ],
   "dist_name" => "Devel-Valgrind-Massif-OutputParser",
-  "dist_version" => "0.0.0_3",
+  "dist_version" => "0.0.0_4",
   "license" => "perl",
   "module_name" => "Devel::Valgrind::Massif::OutputParser",
   "recommends" => {},
