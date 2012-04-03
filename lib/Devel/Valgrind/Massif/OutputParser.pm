@@ -122,9 +122,9 @@ sub _make_heap_node {
   # save the info
   return {
     num_children => $num_children,
-    #raw_line     => $line,
     children     => [],
     nbytes       => $bytes,
+    raw_details  => $details,
     details      => (!$addr ? undef : {
       address  => $addr,
       function => $func,
