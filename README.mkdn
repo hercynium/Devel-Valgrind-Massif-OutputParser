@@ -4,7 +4,7 @@ Devel::Valgrind::Massif::OutputParser - Parse the output from massif just like m
 
 # VERSION
 
-version 0.0.0_4
+version 0.005
 
 # SYNOPSIS
 
